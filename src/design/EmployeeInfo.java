@@ -21,7 +21,8 @@ public class EmployeeInfo implements Employee {
 	 * declare few static and final fields and some non-static fields
 	 */
 	static String companyName;
-	
+	private int empId;
+	private String empName;
 	/*
 	 * You must implement the logic for below 2 methods and 
 	 * following 2 methods are prototype as well for other methods need to be design,
@@ -33,10 +34,11 @@ public class EmployeeInfo implements Employee {
 	 * Must implement below constructor.
 	 */
 	public EmployeeInfo(int employeeId){
-		
+		this.empId=employeeId;
 	}
     public EmployeeInfo(String name, int employeeId){
-		
+		this.empName=name;
+		this.empId=employeeId;
 	}
 	
 	/*
@@ -78,12 +80,12 @@ public class EmployeeInfo implements Employee {
 
 	@Override
 	public int employeeId() {
-		return 0;
+		return empId;
 	}
 
 	@Override
 	public String employeeName() {
-		return null;
+		return empName;
 	}
 
 	@Override

@@ -70,6 +70,7 @@ public class CsvReader {
         for (Trainee student:roster) {
             sum+=student.getNumberOfExercisesSolved();
         }
+        //System.out.println("Number of Students "+nb);
         return sum / nb;
     }
 
