@@ -2,17 +2,42 @@ Please answer the below Data Structure Questions:
 
 why do we need data structure?
 A.
+A data structure is a particular way of storing and organizing data in a computer so that it can be used efficiently. Data structures provide a means to manage large amounts of data efficiently.
+
 
 
 What are the various operations that can be performed on different Data Structures?
+insert , delete , Sort, search, modification,
+
 List out the areas in which data structures are applied extensively?
+Database Management System, OS, Numerical Analysis,Graphics,Artificial Intelligence,Simulation
+
 what is an Array?
+data structure that stores a collection of values of the same type.
+
 what is the difference between the Array and ArrayList?
+Array is a fixed length data structure while ArrayList is a variable length Collection class
+you can not use Generics along with Array, ArrayList allows you to use Generics to ensure type-safety.
+ You can also compare Array vs ArrayList on How to calculate length of Array or size of ArrayList. All kinds of Array provides length variable which denotes length of Array while ArrayList provides size() method to calculate size of ArrayList in Java.
+you can not store primitives in ArrayList.
+create instance of ArrayList without specifying size.
+
 what is LinkedList?
+A linked list is a linear data structure, in which the elements are not stored at contiguous memory locations. The elements in a linked list are linked using pointers
+
 How is an Array different from Linked List?
+ array consumes contiguous memory locations allocated at compile time, i.e. at the time of declaration of array, while for a linked list, memory is assigned as and when data is added to it, which means at runtime.
+
 what is queue?
+The Queue interface is available in java.util package and extends the Collection interface. The queue collection is used to hold the elements about to be processed and provides various operations like the insertion, removal etc. It is an ordered list of objects with its use limited to insert elements at the end of the list and deleting elements from the start of list i.e. it follows the FIFO or the First-In-First-Out principle.
+
 what is stack?
+Stack is a linear Data Structure which follow a particular order in which operations are performed.The order can be FILO(First in last Out) or it may be LIFO.
+
 what is FIFO and LIFO?
+FIFO:first in first out
+LIFO: last in first out
+
 what is the order of complexity?
 what is the best case to search an element from an array?
 what is the worst case to search an element from an array?

@@ -153,27 +153,80 @@ What is Singleton class?
 In object-oriented programming, a singleton class is a class that can have only one object (an instance of the class) at a time.
 
 What is Serialization and Deserialization?
-when to use transient variable in java?
+Serialization is a mechanism of converting the state of an object into a byte stream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory
+
+The Java transient keyword is used on class attributes/variables to indicate that serialization process of such class should ignore such variables while creating a persistent byte stream for any instance of that class.
+
 Difference between while and do..while loop?
+The do while loop executes the content of the loop once before checking the condition of the while.
+Whereas a while loop will check the condition first before executing the content.
+
 What is Enum?
+A Java Enum is a special Java type used to define collections of constants. More precisely, a Java enum type is a special kind of Java class. An enum can contain constants, methods etc
+
 What is Iterator?
+Iterators are used in Collection framework in Java to retrieve elements one by one
+
 Which one will take more memory, an int or Integer?
+Integer
+
 Why is String Immutable in Java?
+The string is Immutable in Java because String objects are cached in String pool. Since cached String literals are shared between multiple clients there is always a risk, where one client's action would affect all another client
+
 What is constructor chaining in Java?
+Constructor chaining is the process of calling one constructor from another constructor with respect to current object.
+
 The difference between Serial and Parallel Garbage Collector?
+a serial collector is a default copying collector which uses only one GC thread for the GC operation, while a parallel collector uses multiple GC threads for the GC operation.
+
 What is JIT stands for?
+Just In time
+
 Explain Java Heap space and Garbage collection?
+Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
+Garbage Collection runs on the heap memory to free the memory used by objects that doesn’t have any reference. Any object created in the heap space has global access and can be referenced from anywhere of the application.
+
 Can you guarantee the garbage collection process?
+Java garbage collection is an automatic process.
+
 What is the difference between stack and heap in Java?
+Java Heap space is used by java runtime to allocate memory to Objects and JRE classes. Whenever we create any object, it’s always created in the Heap space.
+Java Stack memory is used for execution of a thread. They contain method specific values that are short-lived and references to other objects in the heap that are getting referred from the method.
+
 What is reflection in java and why is it useful?
+Reflection is an API which is used to examine or modify the behavior of methods, classes, interfaces at runtime.
+
 what is multithreading in java?
+Multithreading is a Java feature that allows concurrent execution of two or more parts of a program for maximum utilization of CPU. Each part of such program is called a thread. So, threads are light-weight processes within a process.
+
 What is the use of synchronization in Java?
+Synchronization in Java is an important concept since Java is a multi-threaded language where multiple threads run in parallel to complete program execution. In multi-threaded environment synchronization of Java object or synchronization of Java class becomes extremely important. Synchronization in Java is possible by using Java keywords "synchronized" and "volatile”.
+
 What is Framework?
+Frameworks are large bodies (usually many classes) of prewritten code to which you add your own code to solve a problem in a specific domain
+
 What are the testing Framework available in java?
+testNG & jUnit
+
 Difference between jUnit and testNG?
+JUnit
+JUnit is an open-source unit testing framework for a test-driven development environment. It supports the core concept of “first testing then coding”. This framework is specifically designed for Java programming language. In this, data is first tested and then it is inserted in the piece of code. It provides the simplest approach for writing code swiftly and easily.  It also offers annotation for test method identification.
+
+TestNG
+TestNG is an open-source automation testing framework specifically designed for Java Programming language. TestNG resembles JUnit and NUnit but offers some new functionality to make it powerful and easier to use. TestNG supports concurrent testing and offers annotation support as well. TestNG has a powerful execution model with flexible test configuration capabilities.
+
 What are the dependencies for this project?
+the java.util
+the JDBC drivers
+the jUnit and TestiNG
+jasonx
+
 what is dependency injection in java?
+Dependency injection is a concept valid for any programming language. The general concept behind dependency injection is called Inversion of Control. According to this concept a class should not configure its dependencies statically but should be configured from the outside.
+
 What is static binding and dynamic binding?
+Dynamic Binding: In Dynamic binding compiler doesn’t decide the method to be called. Overriding is a perfect example of dynamic binding.
+Static Binding: The binding which can be resolved at compile time by compiler is known as static or early binding. Binding of all the static, private and final methods is done at compile-time .
 
 
 
