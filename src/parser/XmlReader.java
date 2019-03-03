@@ -19,7 +19,7 @@ import java.util.List;
  */
 
 public class XmlReader {
-	
+
 	public List<Student> parseData(String tagName,String path) throws ParserConfigurationException, SAXException, IOException{
 		
 	DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
@@ -62,7 +62,11 @@ public class XmlReader {
 	//This convert method need to be implemented.
 	public String convertIntToChar(String score){
 		String grade = "";
-		
+		int x = Integer.parseInt(score);
+		if (x>=90 && x<=100) grade = "A";
+		else if (x>=80 && x<=89) grade = "B";
+		else if (x>=70 && x<=79) grade = "C";
+
 		
 		return grade;	
 	}
