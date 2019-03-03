@@ -67,14 +67,14 @@ public class Numbers {
 		randomize (num, n);
 
         //Quick Sort
-		/*algo.quickSort(num);
+		algo.quickSort(num);
 		long quickSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Quick_Sort", "SortingNumbers");
 		numbers = connectToSqlDB.readDataBase("Quick_Sort", "SortingNumbers");
 		printValue(numbers);
 		n = num.length;
-		randomize (num, n);*/
+		randomize (num, n);
 
 		//heap Sort
 		algo.heapSort(num);
@@ -87,14 +87,14 @@ public class Numbers {
 		randomize (num, n);
 
 		//Bucket Sort
-		/*algo.bucketSort(num);
+		algo.bucketSort(num);
 		long bucketSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in heap Sort take: " + bucketSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Bucket_Sort", "SortingNumbers");
 		numbers = connectToSqlDB.readDataBase("Bucket_Sort", "SortingNumbers");
 		printValue(numbers);
 		n = num.length;
-		randomize (num, n);*/
+		randomize (num, n);
 
 		//shell sort
 		algo.shellSort(num);
