@@ -202,7 +202,6 @@ public class Sort {
             if (array[i] > max_value)
                 max_value = array[i];
         //
-        int[] list = array;
         int[] Bucket = new int[max_value + 1];
         int[] sorted_nums = new int[list.length];
         for (int i = 0; i < list.length; i++)
@@ -259,7 +258,8 @@ public class Sort {
 
     public static void printSortedArray(int [] array){
         for(int i=0; i<array.length; i++){
-            System.out.println(array[i]);
+            System.out.print(array[i]+", ");
         }
+        System.out.println();
     }
 }

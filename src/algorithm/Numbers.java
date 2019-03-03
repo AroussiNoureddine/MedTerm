@@ -22,7 +22,7 @@ public class Numbers {
 
 	public static void main(String[] args) throws Exception {
 		
-		int [] num = new int[10];
+		int [] num = new int[100000];
 		storeRandomNumbers(num);
 		ConnectToSqlDB connectToSqlDB = new ConnectToSqlDB();
 		//Selection Sort
@@ -67,7 +67,7 @@ public class Numbers {
 		randomize (num, n);
 
         //Quick Sort
-		algo.quickSort(num);
+		algo.quickSort(num,0,num.length-1);
 		long quickSortExecutionTime = algo.executionTime;
 		System.out.println("Total Execution Time of " + num.length + " numbers in Quick Sort take: " + quickSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Quick_Sort", "SortingNumbers");
@@ -89,7 +89,7 @@ public class Numbers {
 		//Bucket Sort
 		algo.bucketSort(num);
 		long bucketSortExecutionTime = algo.executionTime;
-		System.out.println("Total Execution Time of " + num.length + " numbers in heap Sort take: " + bucketSortExecutionTime + " milli sec");
+		System.out.println("Total Execution Time of " + num.length + " numbers in Bucket Sort take: " + bucketSortExecutionTime + " milli sec");
 		connectToSqlDB.insertDataFromArrayToSqlTable(num, "Bucket_Sort", "SortingNumbers");
 		numbers = connectToSqlDB.readDataBase("Bucket_Sort", "SortingNumbers");
 		printValue(numbers);
@@ -116,6 +116,9 @@ public class Numbers {
 
 
 		//Come to conclusion about which Sorting Algo is better in given data set.
+		/*
+			the Best is Quick Sort
+		*/
 
 	}
 
@@ -140,7 +143,8 @@ public class Numbers {
 	}
 	public static void printValue(List<String> array){
 		for(String st:array){
-			System.out.println(st);
+			System.out.print(st+", ");
 		}
+		System.out.println();
 	}
 }
