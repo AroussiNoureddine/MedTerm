@@ -4,6 +4,7 @@ import com.google.gson.JsonArray;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
 import com.google.gson.JsonParser;
+import org.omg.PortableInterceptor.ServerRequestInterceptor;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -50,11 +51,16 @@ public class JsonReaderUtil {
         } else if (root instanceof JsonArray) {
             jsonArray =  root.getAsJsonArray();
         }
+        System.out.println(jsonArray.size());
         for (int i = 0; i < jsonArray.size()-1; i++) {
             try {
                 JsonObject jsonobject = jsonArray.get(i).getAsJsonObject();
                 //you code start here
                 String empEmail = jsonobject.get("empEmail").toString();
+                String empName = jsonobject.get("empName").toString();
+                String salary = jsonobject.get("salary").toString();
+                String department = jsonobject.get("department").toString();
+                System.out.println(empEmail+" "+empName+" "+salary+" "+department);
 
 
             }catch(Exception ex){
