@@ -211,9 +211,10 @@ public class ConnectToSqlDB {
     }
 
     public static void main(String[] args)throws IOException, SQLException, ClassNotFoundException {
-        List<User> list = readUserProfileFromSqlTable();
-        for(User user:list){
-            System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
-        }
+        connectToSqlDatabase();
+        //List<User> list = readUserProfileFromSqlTable();
+        //for(User user:list){
+        //    System.out.println(user.getStName() + " " + user.getStID()+ " " + user.getStDOB());
+       // }
     }
 }
