@@ -104,52 +104,41 @@ public class Sort {
         return c;
     }
 
-    public int [] quickSort(int [] array){
+    public int [] quickSort(int [] array,int start, int end){
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        int low =0,high=list.length - 1;
-        if (list == null || list.length == 0)
-            return list;
+        int partition = partition(list, start, end);
 
-        if (low >= high)
-            return list;
-
-        // pick the pivot
-        int middle = low + (high - low) / 2;
-        int pivot = list[middle];
-
-        // make left < pivot and right > pivot
-        int i = low, j = high;
-        while (i <= j) {
-            while (list[i] < pivot) {
-                i++;
-            }
-
-            while (list[j] > pivot) {
-                j--;
-            }
-
-            if (i <= j) {
-                int temp = list[i];
-                list[i] = list[j];
-                list[j] = temp;
-                i++;
-                j--;
-            }
+        if(partition-1>start) {
+            quickSort(list, start, partition - 1);
         }
-
-        // recursively sort two sub parts
-        if (low < j)
-            quickSort(list);
-
-        if (high > i)
-            quickSort(list);
+        if(partition+1<end) {
+            quickSort(list, partition + 1, end);
+        }
 
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
         return list;
+    }
+    public static int partition(int[] arr, int start, int end){
+        int pivot = arr[end];
+
+        for(int i=start; i<end; i++){
+            if(arr[i]<pivot){
+                int temp= arr[start];
+                arr[start]=arr[i];
+                arr[i]=temp;
+                start++;
+            }
+        }
+
+        int temp = arr[start];
+        arr[start] = pivot;
+        arr[end] = temp;
+
+        return start;
     }
     
     public int [] heapSort(int [] array){
@@ -208,22 +197,21 @@ public class Sort {
         final long startTime = System.currentTimeMillis();
         int [] list = array;
         //implement here
-        int [] bucket=new int[list.length+1];
-
-        for (int i=0; i<bucket.length; i++) {
-            bucket[i]=0;
-        }
-
-        for (int i=0; i<list.length; i++) {
-            bucket[list[i]]++;
-        }
-
-        int outPos=0;
-        for (int i=0; i<bucket.length; i++) {
-            for (int j=0; j<bucket[i]; j++) {
-                list[outPos++]=i;
-            }
-        }
+        int max_value = 0;
+        for (int i = 0; i < array.length; i++)
+            if (array[i] > max_value)
+                max_value = array[i];
+        //
+        int[] list = array;
+        int[] Bucket = new int[max_value + 1];
+        int[] sorted_nums = new int[list.length];
+        for (int i = 0; i < list.length; i++)
+            Bucket[list[i]]++;
+        int outPos = 0;
+        for (int i = 0; i < Bucket.length; i++)
+            for (int j = 0; j < Bucket[i]; j++)
+                sorted_nums[outPos++] = i;
+        list = sorted_nums;
         final long endTime = System.currentTimeMillis();
         final long executionTime = endTime - startTime;
         this.executionTime = executionTime;
