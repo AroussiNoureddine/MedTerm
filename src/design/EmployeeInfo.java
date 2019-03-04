@@ -20,10 +20,16 @@ public class EmployeeInfo extends Person implements Employee {
 	/*
 	 * declare few static and final fields and some non-static fields
 	 */
-	static String companyName;
 	static String department;
 	static int  salary;
 
+	public static String getDepartment() {
+		return department;
+	}
+
+	public static int getSalary() {
+		return salary;
+	}
 
 	/*
 	 * You must implement the logic for below 2 methods and 
@@ -35,6 +41,7 @@ public class EmployeeInfo extends Person implements Employee {
 	 * you must have multiple constructor.
 	 * Must implement below constructor.
 	 */
+	public EmployeeInfo(){super();}
 	public EmployeeInfo(int employeeId){
 		super (employeeId);
 	}
@@ -42,9 +49,8 @@ public class EmployeeInfo extends Person implements Employee {
 		super(empname,employeeId);
 	}
 
-	public EmployeeInfo(String empname, int employeeId,String companyName,String department,int salary ) {
+	public EmployeeInfo(String empname, int employeeId,String department,int salary ) {
 		super(empname,employeeId);
-		this.companyName = companyName;
 		this.department=department;
 		this.salary=salary;
 	}
@@ -76,22 +82,33 @@ public class EmployeeInfo extends Person implements Employee {
 	 * Hints: pension will be 5% of the salary for 1 year, 10% for 2 years with the company and so on.
 	 * 
 	 */
-	public static int calculateEmployeePension(){
+	public static int calculateEmployeePension(int salary){
 		int total=0;
 		Scanner sc  = new Scanner(System.in);
 		System.out.println("Please enter start date in format (example: May,2015): ");
-		String joiningDate = sc.nextLine();
+		String joiningDate = "August,2014";//sc.nextLine();
 		System.out.println("Please enter today's date in format (example: August,2017): ");
-		String todaysDate = sc.nextLine();
-        String convertedJoiningDate = DateConversion.convertDate(joiningDate);
-        String convertedTodaysDate = DateConversion.convertDate(todaysDate);
-
+		String todaysDate ="August,2019";// sc.nextLine();
+        joiningDate= DateConversion.convertDate(joiningDate);
+        todaysDate = DateConversion.convertDate(todaysDate);
+		int numbersOfYears = numbersOfYears(joiningDate,todaysDate);
         //implement numbers of year from above two dates
+
 		//Calculate pension
-
-
-
+		total=(int)(salary *(numbersOfYears*0.05));
 		return total;
+	}
+	public static int numbersOfYears(String date1,String date2){
+		int numbersOfYears=0;
+		int joinYear=Integer.parseInt(date1.substring(date1.length()-4,date1.length()));
+		int joinMonth = Integer.parseInt(date1.substring(0,date1.length()-5));
+		System.out.println(joinYear+" ,"+ joinMonth);
+		int todayYear=Integer.parseInt(date2.substring(date2.length()-4,date2.length()));
+		int todayMonth = Integer.parseInt(date2.substring(0,date2.length()-5));
+		System.out.println(todayYear+" ,"+ todayMonth);
+		if(todayMonth<joinMonth) numbersOfYears=todayYear-joinYear -1;
+		else numbersOfYears=todayYear-joinYear;
+		return numbersOfYears;
 	}
 
 	@Override
@@ -116,7 +133,8 @@ public class EmployeeInfo extends Person implements Employee {
 	public int calculateSalary() {
 		Scanner inStr=new Scanner(System.in);
 		System.out.print("Type in the Salary for the employee please: ");
-		return inStr.nextInt();
+		salary = inStr.nextInt();
+		return salary;
 	}
 
 	@Override
@@ -158,22 +176,22 @@ public class EmployeeInfo extends Person implements Employee {
 					date = 6;
 					break;
 				case July:
-					date = 1;
+					date = 7;
 					break;
 				case August:
-					date = 1;
+					date = 8;
 					break;
 				case September:
-					date = 1;
+					date = 9;
 					break;
 				case October:
-					date = 1;
+					date = 10;
 					break;
 				case November:
-					date = 1;
+					date = 11;
 					break;
 				case December:
-					date = 1;
+					date = 12;
 					break;
 				default:
 					date = 0;

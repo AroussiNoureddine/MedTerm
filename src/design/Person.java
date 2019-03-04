@@ -13,6 +13,14 @@ public abstract class  Person {
         this.name = name;
     }
 
+    public void setiD(int iD) {
+        this.iD = iD;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
     public int getiD() {
         return iD;
     }

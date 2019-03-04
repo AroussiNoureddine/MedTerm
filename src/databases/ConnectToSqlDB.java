@@ -1,5 +1,6 @@
 package databases;
 
+import design.EmployeeInfo;
 import parser.Student;
 
 import java.io.FileInputStream;
@@ -180,7 +181,26 @@ public class ConnectToSqlDB {
             e.printStackTrace();
         }
     }
+    public void insertEmpToSqlTable(EmployeeInfo Emp,String tableName, String columnName1, String columnName2, String columnName3, String columnName4)
+    {
+        try {
+            connectToSqlDatabase();
+            ps = connect.prepareStatement("INSERT INTO "+tableName+" ( " + columnName1 + "," + columnName2 + "," + columnName3 +","+columnName4 +") VALUES(?,?,?,?)");
+            ps.setInt(1,Emp.getiD());
+            ps.setString(2,Emp.getName());
+            ps.setString(3,Emp.getDepartment());
+            ps.setInt(4,Emp.getSalary());
+            ps.executeUpdate();
 
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        } catch (ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+    }
     public static List<User> readUserProfileFromSqlTable()throws IOException, SQLException, ClassNotFoundException{
         List<User> list = new ArrayList<>();
         User user = null;
