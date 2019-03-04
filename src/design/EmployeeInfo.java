@@ -2,7 +2,7 @@ package design;
 
 import java.util.Scanner;
 
-public class EmployeeInfo implements Employee {
+public class EmployeeInfo extends Person implements Employee {
 	
  /*This class can be implemented from Employee interface then add additional methods in EmployeeInfo class.
  * Also, Employee interface can be implemented into an abstract class.So create an Abstract class
@@ -21,8 +21,10 @@ public class EmployeeInfo implements Employee {
 	 * declare few static and final fields and some non-static fields
 	 */
 	static String companyName;
-	private int empId;
-	private String empName;
+	static String department;
+	static int  salary;
+
+
 	/*
 	 * You must implement the logic for below 2 methods and 
 	 * following 2 methods are prototype as well for other methods need to be design,
@@ -34,13 +36,19 @@ public class EmployeeInfo implements Employee {
 	 * Must implement below constructor.
 	 */
 	public EmployeeInfo(int employeeId){
-		this.empId=employeeId;
+		super (employeeId);
 	}
-    public EmployeeInfo(String name, int employeeId){
-		this.empName=name;
-		this.empId=employeeId;
+    public EmployeeInfo(String empname, int employeeId){
+		super(empname,employeeId);
 	}
-	
+
+	public EmployeeInfo(String empname, int employeeId,String companyName,String department,int salary ) {
+		super(empname,employeeId);
+		this.companyName = companyName;
+		this.department=department;
+		this.salary=salary;
+	}
+
 	/*
 	 * This methods should calculate Employee bonus based on salary and performance.
 	 * Then it will return the total yearly bonus. So you need to implement the logic.
@@ -49,8 +57,16 @@ public class EmployeeInfo implements Employee {
 	 * So you probably need to send 2 arguments.
 	 * 
 	 */
-	public static int calculateEmployeeBonus(int numberOfYearsWithCompany){
+	public static int calculateEmployeeBonus(int numberOfYearsWithCompany, int salary , String performance){
 		int total=0;
+		double bonusPercent=0;
+		switch (performance){
+			case "Best" :bonusPercent= 0.1;break;
+			case "Average" :bonusPercent= 0.08;break;
+			case "Below Average" :bonusPercent= 0.04;break;
+			default:bonusPercent= 0;
+		}
+		total = (int) (12*(salary * bonusPercent))* numberOfYearsWithCompany;
 		return total;
 	}
 	
@@ -80,22 +96,27 @@ public class EmployeeInfo implements Employee {
 
 	@Override
 	public int employeeId() {
-		return empId;
+
+		return super.getiD();
 	}
 
 	@Override
 	public String employeeName() {
-		return empName;
+		return super.getName();
 	}
 
 	@Override
 	public void assignDepartment() {
-
+		Scanner inStr=new Scanner(System.in);
+		System.out.print("Type in the Department name for the Employee please: ");
+		department = inStr.next();
 	}
 
 	@Override
 	public int calculateSalary() {
-		return 0;
+		Scanner inStr=new Scanner(System.in);
+		System.out.print("Type in the Salary for the employee please: ");
+		return inStr.nextInt();
 	}
 
 	@Override
